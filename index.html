@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FruitNest – Fresh Fruit Cups</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #2d2d2d;
+        background: #ffffff;
+      }
+      header {
+        background: linear-gradient(135deg, #2ecc71, #27ae60);
+        color: #fff;
+        padding: 80px 20px;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 48px;
+        font-weight: 700;
+      }
+      header p {
+        margin-top: 15px;
+        font-size: 18px;
+        opacity: 0.95;
+      }
+      header .cta {
+        margin-top: 30px;
+        display: inline-block;
+        background: #fff;
+        color: #27ae60;
+        padding: 14px 32px;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      section {
+        padding: 70px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .product {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        align-items: center;
+      }
+      .product img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+      .product-details h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+      }
+      .product-details p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+      .price {
+        font-size: 28px;
+        font-weight: 700;
+        color: #27ae60;
+        margin-bottom: 25px;
+      }
+      .buy-btn {
+        background: #27ae60;
+        color: #fff;
+        padding: 14px 34px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+      }
+      .features {
+        background: #f8fff9;
+        border-radius: 30px;
+        padding: 50px 30px;
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        text-align: center;
+      }
+      .feature h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #27ae60;
+      }
+      footer {
+        background: #1e8449;
+        color: #fff;
+        text-align: center;
+        padding: 25px 15px;
+        margin-top: 80px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO / BANNER -->
+    <header>
+      <h1>FruitNest</h1>
+      <p>Fresh • Healthy • Ready-to-Eat Fruit Cups</p>
+      <a href="#product" class="cta">View Our Product</a>
+    </header>
+
+    <!-- PRODUCT SECTION -->
+    <section id="product">
+      <div class="product">
+        <div>
+          <!-- Replace src with your actual product image -->
+          <img src="assets/product.jpeg" alt="FruitNest Fresh Fruit Cup" />
+        </div>
+        <div class="product-details">
+          <h2>Fresh Fruit Cup</h2>
+          <p>
+            A perfectly curated mix of seasonal fruits like strawberries, kiwi,
+            grapes, pineapple and berries. Hygienically cut, beautifully
+            layered, and packed fresh every day.
+          </p>
+          <div class="price">₹39 Only / cup</div>
+          <a href="#" class="buy-btn">Order Now</a>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <div class="features">
+        <div class="feature">
+          <h3>100% Fresh</h3>
+          <p>Prepared daily using handpicked fruits.</p>
+        </div>
+        <div class="feature">
+          <h3>No Preservatives</h3>
+          <p>Just natural fruits, nothing artificial.</p>
+        </div>
+        <div class="feature">
+          <h3>Healthy Lifestyle</h3>
+          <p>Perfect snack for fitness & wellness.</p>
+        </div>
+        <div class="feature">
+          <h3>On-the-Go</h3>
+          <p>Easy to carry, easy to eat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>© 2026 FruitNest. Freshness you can trust.</footer>
+  </body>
+</html>

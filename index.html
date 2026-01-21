@@ -12,24 +12,53 @@
       color: #2d2d2d;
       background: #ffffff;
     }
-    header {
-      background: linear-gradient(135deg, #2ecc71, #27ae60);
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
+
+    /* HEADER & NAV */
+    .main-header { width: 100%; }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    header h1 {
-      font-size: 48px;
+    .logo {
+      font-size: 26px;
       font-weight: 700;
+      color: #27ae60;
     }
-    header p {
-      margin-top: 15px;
-      font-size: 18px;
-      opacity: 0.95;
+    .nav nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d2d2d;
     }
-    header .cta {
-      margin-top: 30px;
-      display: inline-block;
+    .nav nav a:hover { color: #27ae60; }
+
+    /* HERO BANNER */
+    .hero-banner {
+      height: 80vh;
+      background: url('assets/banner_fruits.png') center/cover no-repeat;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+    .hero-overlay h1 { font-size: 52px; margin-bottom: 15px; }
+    .hero-overlay p { font-size: 20px; margin-bottom: 30px; }
+    .cta {
       background: #fff;
       color: #27ae60;
       padding: 14px 32px;
@@ -37,11 +66,14 @@
       font-weight: 600;
       text-decoration: none;
     }
+
     section {
       padding: 70px 20px;
       max-width: 1200px;
       margin: auto;
     }
+
+    /* PRODUCT */
     .product {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -51,12 +83,12 @@
     .product-slider {
       position: relative;
       max-width: 320px;
-      height: 420px;
-     
+      height: 420px;          /* IMPORTANT: prevents hidden images */
+      
     }
     .p-slide {
       width: 100%;
-      height: 420px;
+      height: 100%;
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.12);
@@ -69,40 +101,32 @@
     .p-slide.active { opacity: 1; }
 
     @media (max-width: 768px) {
-      .p-slide { height: 360px; }
+      .product-slider { height: 360px; }
     }
-    .product-details h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
+
+    .product-details h2 { font-size: 36px; margin-bottom: 15px; }
     .product-details p {
       font-size: 16px;
       line-height: 1.7;
       margin-bottom: 20px;
     }
+
+    /* PRICE */
     .price-box {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
-  color: #fff;
-  padding: 14px 22px;
-  border-radius: 16px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-.price-label {
-  font-size: 14px;
-  opacity: 0.9;
-}
-.price-amount {
-  font-size: 32px;
-  line-height: 1;
-}
-.price-unit {
-  font-size: 16px;
-  opacity: 0.9;
-}
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+    .price-label { font-size: 14px; opacity: 0.9; }
+    .price-amount { font-size: 32px; line-height: 1; }
+    .price-unit { font-size: 16px; opacity: 0.9; }
+
     .buy-btn {
       background: #27ae60;
       color: #fff;
@@ -112,6 +136,8 @@
       font-weight: 600;
       display: inline-block;
     }
+
+    /* FEATURES */
     .features {
       background: #f8fff9;
       border-radius: 30px;
@@ -122,11 +148,8 @@
       gap: 30px;
       text-align: center;
     }
-    .feature h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #27ae60;
-    }
+    .feature h3 { font-size: 20px; margin-bottom: 10px; color: #27ae60; }
+
     footer {
       background: #1e8449;
       color: #fff;
@@ -135,118 +158,103 @@
       margin-top: 80px;
       font-size: 14px;
     }
-    .hero { position: relative; overflow: hidden; }
-    .slider {
-      position: absolute;
-      inset: 0;
-    }
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .slide.active { opacity: 1; }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      background: rgba(0,0,0,0.35);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    </style>
+  </style>
 </head>
 <body>
 
-  <!-- HERO / BANNER -->
-  <header>
-    <h1>FruitNest</h1>
-    <p>Fresh • Healthy • Ready-to-Eat Fruit Cups</p>
-    <a href="#product" class="cta">View Our Product</a>
-  </header>
+<header class="main-header">
+  <div class="nav">
+    <div class="logo">FruitNest</div>
+    <nav>
+      <a href="#product">Products</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </div>
 
-  <!-- PRODUCT SECTION -->
-  <section id="product">
-    <div class="product">
-      <!-- PRODUCT IMAGE SLIDER -->
-      <div class="product-slider">
-        
-        <img src="assets/product2.jpeg" class="p-slide active" alt="FruitNest Fruit Cup">
-        
-      </div>
+  <div class="hero-banner">
+    <div class="hero-overlay">
+      <h1>Fresh Fruits. Healthy Living.</h1>
+      <p>Delicious, hygienic & ready-to-eat fruit cups</p>
+      <a 
+        href="https://wa.me/919920692901?text=Hi%20FruitNest%2C%20I%20want%20to%20order%20a%20Fresh%20Fruit%20Cup" 
+        target="_blank"
+        class="buy-btn">
+        Order Now
+      </a>
+    </div>
+  </div>
+</header>
 
-      <!-- PRODUCT DETAILS -->
-      <div class="product-details">
-        <h2>Fresh Fruit Cup</h2>
-        <p>
-          A perfectly curated mix of seasonal fruits like strawberries, kiwi, grapes, pineapple and berries.
-          Hygienically cut, beautifully layered, and packed fresh every day.
-        </p>
-        <div class="price-box">
-  <span class="price-label">Only</span>
-  <span class="price-amount">₹40</span>
-  <span class="price-unit">/ cup</span>
-</div>
-        
-        <a 
-  href="https://wa.me/919920692901?text=Hi%20FruitNest%2C%20I%20want%20to%20order%20a%20Fresh%20Fruit%20Cup" 
-  target="_blank"
-  class="buy-btn">
-  Order Now
-</a>
-      </div>
+<section id="product">
+  <div class="product">
+    <div class="product-slider">
+      
+      <img src="images/product2.jpeg" class="p-slide active" alt="FruitNest Fruit Cup">
+
     </div>
 
-    <!-- FEATURES -->
-    <div class="features">
-      <div class="feature">
-        <h3>100% Fresh</h3>
-        <p>Prepared daily using handpicked fruits.</p>
+    <div class="product-details">
+      <h2>Fresh Fruit Cup</h2>
+      <p>
+        A perfectly curated mix of seasonal fruits like strawberries, kiwi, grapes,
+        pineapple and berries. Hygienically cut and packed fresh every day.
+      </p>
+      <div class="price-box">
+        <span class="price-label">Only</span>
+        <span class="price-amount">₹40</span>
+        <span class="price-unit">/ cup</span>
       </div>
-      <div class="feature">
-        <h3>No Preservatives</h3>
-        <p>Just natural fruits, nothing artificial.</p>
-      </div>
-      <div class="feature">
-        <h3>Healthy Lifestyle</h3>
-        <p>Perfect snack for fitness & wellness.</p>
-      </div>
-      <div class="feature">
-        <h3>On-the-Go</h3>
-        <p>Easy to carry, easy to eat.</p>
-      </div>
+      
+      <a 
+          href="https://wa.me/919920692901?text=Hi%20FruitNest%2C%20I%20want%20to%20order%20a%20Fresh%20Fruit%20Cup" 
+          target="_blank"
+          class="buy-btn">
+          Order Now
+        </a>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 FruitNest. Freshness you can trust.
-  </footer>
+  <div class="features">
+    <div class="feature"><h3>100% Fresh</h3><p>Prepared daily using handpicked fruits.</p></div>
+    <div class="feature"><h3>No Preservatives</h3><p>Just natural fruits, nothing artificial.</p></div>
+    <div class="feature"><h3>Healthy Lifestyle</h3><p>Perfect snack for fitness & wellness.</p></div>
+    <div class="feature"><h3>On-the-Go</h3><p>Easy to carry, easy to eat.</p></div>
+  </div>
+</section>
 
-  <!-- <script>
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
+<section id="about">
+  <h2 style="text-align:center; font-size:36px; margin-bottom:20px;">About FruitNest</h2>
+  <p style="max-width:800px; margin:0 auto; text-align:center; font-size:16px; line-height:1.7;">
+    FruitNest was born with a simple idea – make healthy eating easy, tasty, and accessible.
+    We prepare fresh fruit cups daily using handpicked fruits, ensuring quality and hygiene.
+  </p>
+</section>
 
-    setInterval(() => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }, 3000);
-  </script> -->
-<!-- 
-  <script>
+<section id="contact" style="padding:70px 20px; text-align:center; background:#f8fff9;">
+  <h2 style="font-size:36px; margin-bottom:15px;">Contact Us</h2>
+  <p>📍 Freshly prepared & delivered daily</p>
+  <p>📞 +91 XXXXXXXXXX</p>
+  <p>💬 Order via WhatsApp</p>
+</section>
+
+<footer>
+  © 2026 FruitNest. Freshness you can trust.
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     const pSlides = document.querySelectorAll('.p-slide');
-    let pIndex = 0;
+    if (pSlides.length <= 1) return; // safety
 
+    let index = 0;
     setInterval(() => {
-      pSlides[pIndex].classList.remove('active');
-      pIndex = (pIndex + 1) % pSlides.length;
-      pSlides[pIndex].classList.add('active');
+      pSlides[index].classList.remove('active');
+      index = (index + 1) % pSlides.length;
+      pSlides[index].classList.add('active');
     }, 3000);
-  </script> -->
+  });
+</script>
 
 </body>
 </html>

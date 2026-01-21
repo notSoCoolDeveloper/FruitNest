@@ -164,9 +164,7 @@
     <div class="product">
       <!-- PRODUCT IMAGE SLIDER -->
       <div class="product-slider">
-        <img src="assets/product.jpeg" class="p-slide active" alt="FruitNest Fruit Cup">
         <img src="assets/product2.jpeg" class="p-slide" alt="FruitNest Fruit Cup">
-        <img src="assets/product3.jpeg" class="p-slide" alt="FruitNest Fruit Cup">
       </div>
 
       <!-- PRODUCT DETAILS -->
@@ -223,12 +221,13 @@
     }
 
     let pIndex = 0;
-
-    setInterval(() => {
-      pSlides[pIndex].classList.remove('active');
-      pIndex = (pIndex + 1) % pSlides.length;
-      pSlides[pIndex].classList.add('active');
-    }, 3000);
+    if (pSlides.length > 1) {
+      setInterval(() => {
+        pSlides[pIndex].classList.remove('active');
+        pIndex = (pIndex + 1) % pSlides.length;
+        pSlides[pIndex].classList.add('active');
+      }, 3000);
+    }
   });
 </script>
 

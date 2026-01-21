@@ -209,8 +209,15 @@
     }, 3000);
   </script>
 
-  <script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     const pSlides = document.querySelectorAll('.p-slide');
+
+    if (pSlides.length === 0) {
+      console.warn("No product slides found");
+      return;
+    }
+
     let pIndex = 0;
 
     setInterval(() => {
@@ -218,7 +225,8 @@
       pIndex = (pIndex + 1) % pSlides.length;
       pSlides[pIndex].classList.add('active');
     }, 3000);
-  </script>
+  });
+</script>
 
 </body>
 </html>

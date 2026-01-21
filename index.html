@@ -16,15 +16,50 @@
     /* HEADER & NAV */
     .main-header { width: 100%; }
     .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: #ffffff;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav nav {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 30px;
+    transition: right 0.3s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+  }
+
+  .nav nav.open {
+    right: 0;
+  }
+
+  .nav nav a {
+    margin: 15px 0;
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
     .logo {
       font-size: 26px;
       font-weight: 700;
@@ -165,7 +200,8 @@
 <header class="main-header">
   <div class="nav">
     <div class="logo">FruitNest</div>
-    <nav>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+    <nav id="mobileNav">
       <a href="#product">Products</a>
       <a href="#about">About Us</a>
       <a href="#contact">Contact Us</a>
@@ -176,12 +212,13 @@
     <div class="hero-overlay">
       <h1>Fresh Fruits. Healthy Living.</h1>
       <p>Delicious, hygienic & ready-to-eat fruit cups</p>
-      <a 
-        href="https://wa.me/919920692901?text=Hi%20FruitNest%2C%20I%20want%20to%20order%20a%20Fresh%20Fruit%20Cup" 
-        target="_blank"
-        class="buy-btn">
-        Order Now
-      </a>
+      
+       <a 
+          href="https://wa.me/919920692901?text=Hi%20FruitNest%2C%20I%20want%20to%20order%20a%20Fresh%20Fruit%20Cup" 
+          target="_blank"
+          class="buy-btn">
+          Order Now
+        </a>
     </div>
   </div>
 </header>
@@ -189,9 +226,8 @@
 <section id="product">
   <div class="product">
     <div class="product-slider">
-      
-      <img src="assets/product2.jpeg" class="p-slide active" alt="FruitNest Fruit Cup">
-
+      <img src="assets/product2.jpg" class="p-slide active" alt="FruitNest Fruit Cup">
+     
     </div>
 
     <div class="product-details">
@@ -205,8 +241,7 @@
         <span class="price-amount">₹40</span>
         <span class="price-unit">/ cup</span>
       </div>
-      
-      <a 
+       <a 
           href="https://wa.me/919920692901?text=Hi%20FruitNest%2C%20I%20want%20to%20order%20a%20Fresh%20Fruit%20Cup" 
           target="_blank"
           class="buy-btn">
@@ -253,6 +288,22 @@
       index = (index + 1) % pSlides.length;
       pSlides[index].classList.add('active');
     }, 3000);
+  });
+</script>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+
+  menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+  });
+
+  // close menu when clicking a link
+  document.querySelectorAll('#mobileNav a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+    });
   });
 </script>
 

@@ -48,9 +48,18 @@
       gap: 40px;
       align-items: center;
     }
+      @media (max-width: 768px) {
+        .product-slider {
+          height: 360px;
+        }
+        .p-slide {
+          height: 360px;
+        }
+      }
     .product-slider {
       position: relative;
       max-width: 320px;
+      height: 420px;   /* 👈 ADD THIS */
       margin: auto;
     }
     .p-slide {
